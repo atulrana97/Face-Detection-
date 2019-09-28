@@ -21,13 +21,13 @@ while True:
     for face in faces:
         (x,y,w,h)=face
         cv2.rectangle(frame,(x,y),(x+w,y+h),(251,0,0),2)
-    offset=10
-    face_section=frame[y-offset:y+h+offset,x-offset:x+w+offset]
-    face_section=cv2.resize(face_section,(100,100))
-    skip+=1
-    if skip%10==0:
-        face_data.append(face_section)
-        print(len(face_data))
+        offset=10
+        face_section=frame[y-offset:y+h+offset,x-offset:x+w+offset]
+        face_section=cv2.resize(face_section,(100,100))
+        skip+=1
+        if skip%10==0:
+            face_data.append(face_section)
+            print(len(face_data))
     cv2.imshow("frame",frame)
     cv2.imshow("face section",face_section)
     key_pressed=cv2.waitKey(1) & 0xFF
